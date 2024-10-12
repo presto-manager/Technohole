@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=5 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
 [ext_resource type="Texture2D" uid="uid://dcn4lae56uhby" path="res://Sprite-0011.png" id="2_m8m77"]
 [ext_resource type="PackedScene" uid="uid://dmgpfepcuvryd" path="res://Lidar_line/lidar_dot_line.tscn" id="2_w014y"]
+[ext_resource type="Texture2D" uid="uid://b0yl8et3ib8jl" path="res://icon.svg" id="4_6l62f"]
 
 [node name="player" type="CharacterBody2D"]
 platform_floor_layers = 4294967294
@@ -30,4 +31,10 @@ texture = ExtResource("2_m8m77")
 polygon = PackedVector2Array(-4, -7, 1, -7, 1, -6, 5, -6, 5, -5, 7, -5, 7, 5, 5, 5, 5, 6, 1, 6, 1, 7, -4, 7, -4, 5, -6, 5, -6, -5, -4, -5)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(43, 0)
+position = Vector2(7, 0)
+target_position = Vector2(67, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="RayCast2D"]
+position = Vector2(32.5, 0)
+scale = Vector2(0.507813, 0.0390625)
+texture = ExtResource("4_6l62f")

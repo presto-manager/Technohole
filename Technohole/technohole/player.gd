@@ -36,6 +36,19 @@ func create_dot(point):
 	get_parent().add_child(line_instance)
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and ray_cast.is_colliding():
-		var point = ray_cast.get_collision_point()
-		create_dot(point)
+	if Input.is_action_just_pressed("ui_accept"):
+		"""var flag = false
+		for i in range(-30,30):
+			if ray_cast.is_colliding():
+				flag = true
+				break 
+		"""
+		
+		for i in range(-30,30):
+			ray_cast.rotation_degrees = i
+			var point = ray_cast.get_collision_point()
+			if point:
+				create_dot(point)
+				print(point)
+			await get_tree().create_timer(0.0001).timeout
+		ray_cast.rotation_degrees = 0
