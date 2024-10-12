@@ -8,6 +8,7 @@ var motion = Vector2.ZERO
 var speed = 150
 var jumpForce = 500
 var gravity = 700
+var rotation_speed = 5.0
 var vel = Vector2()
 
 
@@ -30,6 +31,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		var target_rotation = velocity.angle()
+		rotation = lerp_angle(rotation, target_rotation, rotation_speed * delta)
+
 
 	move_and_slide()
 
