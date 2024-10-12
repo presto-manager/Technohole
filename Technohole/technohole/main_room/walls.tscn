@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh5fkjum136st"]
+[gd_scene load_steps=3 format=3 uid="uid://bh5fkjum136st"]
 
 [ext_resource type="Texture2D" uid="uid://bh0hmqyd5b0iu" path="res://main_hor_rum.png" id="1_8evaf"]
+[ext_resource type="Script" path="res://main_room/sprite_2d.gd" id="2_nch6h"]
 
 [node name="walls" type="StaticBody2D"]
 scale = Vector2(1.25, 1.25)
@@ -8,75 +9,94 @@ scale = Vector2(1.25, 1.25)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_8evaf")
+script = ExtResource("2_nch6h")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(512, -256, 512, 288, -512, 288, -512, -288, 512, -288, 512, -256, -480, -256, -480, 255, 480, 256, 480, -256)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-288, -256, -288, -233, -216, -233, -216, -256)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-416, -208, -320, -208, -320, -124, -360, -124, -360, -96, -416, -96)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-464, -48, -336, -48, -336, 16, -464, 16)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-259, -116, -229, -116, -229, -32, -253, -32, -253, -48, -272, -48, -272, -85, -259, -85)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-186, -15, -132, -15, -132, -79, -79, -79, -79, -15, -107, -15, -107, 16, -131, 16, -131, 40, -186, 40)
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(28, -113, 13, -113, 13, -100, -28, -100, -28, -23, -3, -23, -3, -67, 8, -67, 8, -79, 28, -79)
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-480, 40, -400, 40, -400, 44, -400, 48, -472, 48, -472, 92, -360, 92, -360, 48, -368, 48, -368, 40, -216, 40, -216, 0, -208, 0, -208, 40, 28, 40, 28, -8, 36, -8, 36, 40, 380, 40, 380, 16, 388, 16, 388, 40, 480, 40, 480, 48, -352, 48, -352, 100, -480, 100)
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-216, -256, -208, -256, -208, -223, -216, -223)
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-185, -132, -185, -160, -164, -160, -164, -132, -185, -132)
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-140, -136, -140, -160, -119, -160, -119, -136, -140, -136)
 
 [node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(0, -256, 80, -256, 80, -223, 36, -224, 36, -240, 0, -240)
 
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(69, 40, 69, 11, 180, 11, 180, 40, 69, 40)
 
 [node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(256, -25, 305, -25, 305, -5, 256, -5)
 
 [node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-216, -192, -208, -192, -208, -132, -164, -132, -164, -224, -140, -224, -140, -136, -48, -136, -48, -256, -40, -256, -40, -164, 160, -164, 160, -137, 388, -136, 388, -48, 480, -48, 480, -40, 388, -40, 388, -16, 380, -16, 380, -25, 158, -25, 158, -56, 201, -56, 201, -90, 217, -90, 217, -56, 217, -56, 380, -56, 380, -121, 336, -121, 336, -80, 248, -80, 248, -120, 176, -120, 176, -99, 160, -99, 160, -128, -208, -128, -208, -32, -216, -32)
 
 [node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-100, -256, -100, -160, -92, -160, -92, -256)
 
 [node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(64, -80, 112, -80, 112, -32, 64, -32)
 
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(28, -128, 28, -71, 36, -71, 36, -128)

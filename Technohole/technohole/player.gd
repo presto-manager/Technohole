@@ -1,20 +1,11 @@
 extends CharacterBody2D
 
+@onready var wall_sprite = $main_room
 
-
-
-
-var rotation_speed = 13.0
-
-
-
+var rotation_speed = 13.5
 
 func _physics_process(delta: float) -> void:
-	
-
-
 	const SPEED = 100.0
-
 	var direction := Input.get_axis("ui_up", "ui_down")
 	if direction:
 		velocity.y = direction * SPEED
@@ -33,6 +24,4 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.normalized() * SPEED
 		var target_rotation = velocity.angle()
 		rotation = lerp_angle(rotation, target_rotation, rotation_speed * delta)
-
-
 	move_and_slide()
