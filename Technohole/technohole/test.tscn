@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4h1dc56srk7c"]
+[gd_scene load_steps=7 format=3 uid="uid://b4h1dc56srk7c"]
 
 [ext_resource type="PackedScene" uid="uid://c8dpev63m5pjh" path="res://player/player.tscn" id="1_iyent"]
+[ext_resource type="Script" path="res://test.gd" id="1_raiba"]
+[ext_resource type="AudioStream" uid="uid://c3g2a5l0rn4ws" path="res://embed.mp3" id="2_ewcj7"]
 [ext_resource type="PackedScene" uid="uid://bh5fkjum136st" path="res://main_room/walls.tscn" id="2_rww8a"]
+[ext_resource type="Script" path="res://background_dark.gd" id="4_jhmlb"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_uhjiu"]
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_raiba")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ewcj7")
 
 [node name="walls" parent="." instance=ExtResource("2_rww8a")]
 
-[node name="player" parent="walls" instance=ExtResource("1_iyent")]
-position = Vector2(-434.4, -149.6)
-scale = Vector2(0.8, 0.8)
+[node name="background_dark" type="Node2D" parent="."]
+scale = Vector2(2000, 2000)
+script = ExtResource("4_jhmlb")
+
+[node name="Sprite2D" type="Sprite2D" parent="background_dark"]
+texture = SubResource("ImageTexture_uhjiu")
+
+[node name="player" parent="." instance=ExtResource("1_iyent")]
+position = Vector2(-543, -187)

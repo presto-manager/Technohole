@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccpbqrbawfvbn"]
+
+[ext_resource type="Script" path="res://background_dark.gd" id="1_fa3a2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_uhjiu"]
+
+[node name="background_dark" type="Node2D"]
+scale = Vector2(2000, 2000)
+script = ExtResource("1_fa3a2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ImageTexture_uhjiu")

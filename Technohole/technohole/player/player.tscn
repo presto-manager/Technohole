@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=4 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
 [ext_resource type="Texture2D" uid="uid://dcn4lae56uhby" path="res://Sprite-0011.png" id="2_m8m77"]
+[ext_resource type="PackedScene" uid="uid://dmgpfepcuvryd" path="res://Lidar_line/lidar_dot_line.tscn" id="2_w014y"]
 
 [node name="player" type="CharacterBody2D"]
 platform_floor_layers = 4294967294
 platform_wall_layers = 1
 script = ExtResource("1_f6q64")
+line_scene = ExtResource("2_w014y")
 
 [node name="Player_view" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -26,3 +28,6 @@ texture = ExtResource("2_m8m77")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4, -7, 1, -7, 1, -6, 5, -6, 5, -5, 7, -5, 7, 5, 5, 5, 5, 6, 1, 6, 1, 7, -4, 7, -4, 5, -6, 5, -6, -5, -4, -5)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(43, 0)
