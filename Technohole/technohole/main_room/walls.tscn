@@ -12,32 +12,26 @@ texture = ExtResource("1_8evaf")
 script = ExtResource("2_nch6h")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(512, -256, 512, 288, -512, 288, -512, -288, 512, -288, 512, -256, -480, -256, -480, 255, 480, 256, 480, -256)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-288, -256, -288, -233, -216, -233, -216, -256)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-416, -208, -320, -208, -320, -124, -360, -124, -360, -96, -416, -96)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-464, -48, -336, -48, -336, 16, -464, 16)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-259, -116, -229, -116, -229, -32, -253, -32, -253, -48, -272, -48, -272, -85, -259, -85)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.25, 1.25)
 polygon = PackedVector2Array(-186, -15, -132, -15, -132, -79, -79, -79, -79, -15, -107, -15, -107, 16, -131, 16, -131, 40, -186, 40)
 

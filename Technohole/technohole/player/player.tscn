@@ -12,7 +12,7 @@ script = ExtResource("1_f6q64")
 line_scene = ExtResource("2_w014y")
 
 [node name="Player_view" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -31,10 +31,10 @@ texture = ExtResource("2_m8m77")
 polygon = PackedVector2Array(-4, -7, 1, -7, 1, -6, 5, -6, 5, -5, 7, -5, 7, 5, 5, 5, 5, 6, 1, 6, 1, 7, -4, 7, -4, 5, -6, 5, -6, -5, -4, -5)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(7, 0)
-target_position = Vector2(67, 0)
+rotation = -6.28319
+target_position = Vector2(49, 8.56743e-06)
 
 [node name="Sprite2D" type="Sprite2D" parent="RayCast2D"]
-position = Vector2(32.5, 0)
-scale = Vector2(0.507813, 0.0390625)
+position = Vector2(25, 2.86102e-06)
+scale = Vector2(0.382813, 0.0390625)
 texture = ExtResource("4_6l62f")

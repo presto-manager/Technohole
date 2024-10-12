@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @onready var wall_sprite = $main_room
-const SPEED = 100.0
-var rotation_speed = 13.5
+const SPEED = 40.0
+var rotation_speed = 3.5
 
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
@@ -37,18 +37,15 @@ func create_dot(point):
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		"""var flag = false
-		for i in range(-30,30):
-			if ray_cast.is_colliding():
-				flag = true
-				break 
-		"""
-		
-		for i in range(-30,30):
+		var i = -60
+		while true:
+			if i > 60:
+				break
 			ray_cast.rotation_degrees = i
 			var point = ray_cast.get_collision_point()
 			if point:
 				create_dot(point)
 				print(point)
-			await get_tree().create_timer(0.0001).timeout
+			await get_tree().create_timer(delta).timeout
+			i += 1
 		ray_cast.rotation_degrees = 0
