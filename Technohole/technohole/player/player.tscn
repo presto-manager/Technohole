@@ -9,8 +9,17 @@
 script = ExtResource("1_f6q64")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(0.025641, 0.025641)
+scale = Vector2(0.115385, 0.115385)
 texture = ExtResource("2_rsnbn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fhffk")
+
+[node name="Player_view" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1

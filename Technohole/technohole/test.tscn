@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4h1dc56srk7c"]
+[gd_scene load_steps=3 format=3 uid="uid://b4h1dc56srk7c"]
 
 [ext_resource type="PackedScene" uid="uid://c8dpev63m5pjh" path="res://player/player.tscn" id="1_iyent"]
+[ext_resource type="Texture2D" uid="uid://cu8xki3hnjusy" path="res://416-4161422_arvore-pixel-by-tabor-bruno-dax9s58-pixel.png" id="3_cwvvv"]
 
 [node name="Test" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_iyent")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-61, -48)
+scale = Vector2(0.314634, 0.0871795)
+texture = ExtResource("3_cwvvv")

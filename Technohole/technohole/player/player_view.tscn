@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b08cwtgosbxh7"]
+
+[node name="Player_view" type="Camera2D"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
