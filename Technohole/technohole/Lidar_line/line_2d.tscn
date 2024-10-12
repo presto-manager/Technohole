@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2cojexijo0ov"]
+
+[ext_resource type="Script" path="res://line_2d.gd" id="1_548lp"]
+
+[sub_resource type="Curve" id="Curve_x61ii"]
+
+[sub_resource type="Gradient" id="Gradient_8wjqo"]
+
+[node name="Line2D" type="Line2D"]
+width = 50.0
+width_curve = SubResource("Curve_x61ii")
+default_color = Color(0.203922, 1, 1, 1)
+gradient = SubResource("Gradient_8wjqo")
+script = ExtResource("1_548lp")

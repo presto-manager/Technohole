@@ -1,21 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=3 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
-[ext_resource type="Texture2D" uid="uid://cu8xki3hnjusy" path="res://416-4161422_arvore-pixel-by-tabor-bruno-dax9s58-pixel.png" id="2_rsnbn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhffk"]
+[ext_resource type="Texture2D" uid="uid://dcn4lae56uhby" path="res://Sprite-0011.png" id="2_m8m77"]
 
 [node name="player" type="CharacterBody2D"]
+platform_floor_layers = 4294967294
+platform_wall_layers = 1
 script = ExtResource("1_f6q64")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(0.115385, 0.115385)
-texture = ExtResource("2_rsnbn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fhffk")
-
 [node name="Player_view" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -23,3 +17,12 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0525559, -0.0525558)
+rotation = 1.5708
+scale = Vector2(0.149343, 0.149343)
+texture = ExtResource("2_m8m77")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -7, 1, -7, 1, -6, 5, -6, 5, -5, 7, -5, 7, 5, 5, 5, 5, 6, 1, 6, 1, 7, -4, 7, -4, 5, -6, 5, -6, -5, -4, -5)
