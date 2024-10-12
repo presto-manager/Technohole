@@ -11,5 +11,16 @@ config_version=5
 [application]
 
 config/name="Technohole"
+run/main_scene="res://test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+config/size/always_on_top=false
+config/stretch/scale=1.0
+config/size/viewport_height=648
+config/size/viewport_width=1152
+
+[display]
+
+window/size/viewport_width=340
+window/size/viewport_height=180
+window/stretch/scale=4.28
