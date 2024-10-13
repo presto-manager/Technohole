@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://dmgpfepcuvryd"]
+[gd_scene load_steps=2 format=3 uid="uid://dmgpfepcuvryd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqplu"]
 
 [node name="Line2D" type="Line2D"]
+material = SubResource("ShaderMaterial_bqplu")
 points = PackedVector2Array(0, 0, 1, 0)
 width = 1.0
+default_color = Color(0.986752, 0.986752, 0.986752, 1)
