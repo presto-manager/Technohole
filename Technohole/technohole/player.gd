@@ -8,17 +8,9 @@ var rotation_speed = 3.5
 @onready var ray_cast = $RayCast2D
 @onready var audio_player = $AudioStreamPlayer2D  # Убедитесь, что путь к узлу правильный
 
-var queue = [] # with len = 100
-var points = []
-const LEN_OF_QUEUE = 300
+var queue = []
 func queue_add(elem, queue):
-	if elem in queue:
-		return
-	if len(queue) == LEN_OF_QUEUE:
-		discolor_point(queue[0])
-		queue.remove_at(0)
-		queue.push_back(elem)
-	else:
+	if elem not in queue:
 		queue.append(elem)
 
 func discolor_point(point):
@@ -26,7 +18,7 @@ func discolor_point(point):
 	line_instance.position = Vector2(point)
 	line_instance.default_color = Color(0, 0, 0)
 	get_parent().add_child(line_instance)
-
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("ui_up", "ui_down")
@@ -53,28 +45,21 @@ func _physics_process(delta: float) -> void:
 	
 func create_dot(point, coeff, time):
 
-
 	var line_instance = line_scene.instantiate()
 	line_instance.position = Vector2(point)
 	coeff = coeff*8
 	line_instance.default_color = Color(255/coeff, 255/coeff, 255/coeff)
 	get_parent().add_child(line_instance)
 	queue_add(point,queue)
-	points.append(line_instance)
 	
-	
-	var timer = get_tree().create_timer(time)  # Создаем таймер на 5 секунд
-	await timer.timeout  # Ожидаем завершения таймера
-	line_instance.queue_free()  # Удаляем объект
+	await get_tree().create_timer(time).timeout
+	discolor_point(point) # Удаляем объект
 	
 
 func _ready() -> void:
 	ray_cast.visible = false
 
 func _process(delta):
-	
-	#var timer = get_tree().create_timer(5.0)
-		
 
 	if Input.is_action_just_pressed("scan_left"):
 		SPEED = 8.0
@@ -83,12 +68,8 @@ func _process(delta):
 		ray_cast.visible = true
 		audio_player.play()  # Проигрываем музыку
 		var player_position = self.position
-<<<<<<< HEAD
 		var i = -50
-=======
-		var i = -60
 		var time = 5
->>>>>>> 5ff251bfc84934001550e58f8eced3ca7466942b
 		while true:
 			
 			if i > 50:
@@ -100,15 +81,10 @@ func _process(delta):
 			
 			if point:
 				create_dot(point, coeff, time)
-				print(point)
 				
 			await get_tree().create_timer(delta).timeout
-<<<<<<< HEAD
 			i += 2
-=======
-			i += 1
-			time += 1
->>>>>>> 5ff251bfc84934001550e58f8eced3ca7466942b
+			time += 0.25
 		ray_cast.rotation_degrees = 0
 		ray_cast.visible = false
 		SPEED = 40.0
