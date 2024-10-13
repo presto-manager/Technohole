@@ -71,7 +71,7 @@ func _ready() -> void:
 	sprite.play("stand")
 
 func _process(delta):
-	
+	print(self.position)
 	if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right")and not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		sprite.play("stand")
 		

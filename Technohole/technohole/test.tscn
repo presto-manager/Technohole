@@ -18,6 +18,7 @@ stream = ExtResource("2_ewcj7")
 [node name="walls" parent="." instance=ExtResource("2_rww8a")]
 
 [node name="background_dark" type="Node2D" parent="."]
+visible = false
 scale = Vector2(2000, 2000)
 script = ExtResource("4_jhmlb")
 
