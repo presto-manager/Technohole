@@ -7,6 +7,7 @@ var rotation_speed = 3.5
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
 @onready var audio_player = $AudioStreamPlayer2D  # Убедитесь, что путь к узлу правильный
+@onready var audio_player2 = $AudioStreamPlayer2D2  # Убедитесь, что путь к узлу правильный
 @onready var sprite = $AnimatedSprite2D  # Убедитесь, что путь к узлу правильный
 
 var queue = []
@@ -26,9 +27,13 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.y = direction * SPEED
 		sprite.play("run")
+		
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		sprite.play("run")
+		
+		
+	
 	
   # Get the input direction and handle the movement/deceleration.
   # As good practice, you should replace UI actions with custom gameplay actions.
@@ -98,3 +103,9 @@ func _process(delta):
 		ray_cast.visible = false
 		SPEED = 40.0
 		rotation_speed = 3.5
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Игрок покинул область взаимодействия!")
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	print("Игрок покинул область взаимодействия!")

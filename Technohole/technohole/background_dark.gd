@@ -5,7 +5,7 @@ func _ready():
 	var background = Sprite2D.new()
 	
 	# Загружаем текстуру (замените "res://path_to_your_texture.png" на путь к вашей текстуре)
-	background.texture = preload("res://blackhole.png")
+	background.texture = preload("res://blackhole1.png")
 	
 	# Устанавливаем позицию фона (например, в центр экрана)
 	background.position = Vector2(0,0)

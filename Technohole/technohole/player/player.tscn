@@ -1,19 +1,49 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=19 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
 [ext_resource type="PackedScene" uid="uid://dmgpfepcuvryd" path="res://Lidar_line/lidar_dot_line.tscn" id="2_w014y"]
 [ext_resource type="Texture2D" uid="uid://r8ox38ivadi1" path="res://robot_sprite/robotpomerfiol4.png" id="3_1ctw1"]
-[ext_resource type="Script" path="res://player/area_2d.gd" id="3_m8kmp"]
+[ext_resource type="Texture2D" uid="uid://dyaadinoy0hux" path="res://robot_sprite/ropotssundukom1.png" id="3_ra7vb"]
 [ext_resource type="Texture2D" uid="uid://c205y3snray3m" path="res://robot_sprite/robotpomerfiol1.png" id="4_adu6i"]
+[ext_resource type="Texture2D" uid="uid://cx3icd1ko84cu" path="res://robot_sprite/ropotssundukom2.png" id="4_qh80m"]
+[ext_resource type="Texture2D" uid="uid://1bam8m7lyqf" path="res://robot_sprite/ropotssundukom3.png" id="5_77y7a"]
 [ext_resource type="Texture2D" uid="uid://dwxllagi6qm3b" path="res://robot_sprite/robotpomerfiol2.png" id="5_gp4w3"]
 [ext_resource type="Script" path="res://player/ray_cast_2d.gd" id="5_lxcry"]
 [ext_resource type="AudioStream" uid="uid://cdxllutvsd24q" path="res://scan_sound.mp3" id="6_m1y34"]
+[ext_resource type="Texture2D" uid="uid://bs1sh6tmv2env" path="res://robot_sprite/ropotssundukom4.png" id="6_pqfas"]
 [ext_resource type="Texture2D" uid="uid://cu1vprrge8bop" path="res://robot_sprite/robotpomerfiol3.png" id="6_tbbkq"]
-[ext_resource type="Texture2D" uid="uid://dus21ofx1mt0c" path="res://Sprite-0002.png" id="9_0v5ph"]
+[ext_resource type="Texture2D" uid="uid://dijvlposn0fdi" path="res://luch.png" id="9_ehduf"]
 [ext_resource type="Script" path="res://player/animated_sprite_2d.gd" id="10_a3k86"]
+[ext_resource type="Script" path="res://player/audio_stream_player_2d.gd" id="15_cbwqa"]
+[ext_resource type="AudioStream" uid="uid://c5vbh8rfjfv8k" path="res://metalStep.mp3" id="15_jx8el"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pubtv"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ra7vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qh80m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_77y7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pqfas")
+}],
+"loop": true,
+"name": &"box",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_77y7a")
+}],
+"loop": true,
+"name": &"box_stand",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_1ctw1")
@@ -52,7 +82,7 @@ line_scene = ExtResource("2_w014y")
 position = Vector2(0, 1)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_pubtv")
-animation = &"stand"
+animation = &"box_stand"
 script = ExtResource("10_a3k86")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -61,10 +91,15 @@ target_position = Vector2(95, 0)
 script = ExtResource("5_lxcry")
 
 [node name="Testlaser" type="MeshInstance2D" parent="RayCast2D"]
+visible = false
 position = Vector2(46.878, 0)
 scale = Vector2(93.7759, 1.4575)
 mesh = SubResource("BoxMesh_73d3i")
-texture = ExtResource("9_0v5ph")
+
+[node name="Luch" type="Sprite2D" parent="RayCast2D"]
+position = Vector2(46.9891, 0)
+scale = Vector2(0.0920021, 0.214286)
+texture = ExtResource("9_ehduf")
 
 [node name="Player_view" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -76,11 +111,13 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Area2D" type="Area2D" parent="Player_view"]
-script = ExtResource("3_m8kmp")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_m1y34")
+volume_db = 15.0
+script = ExtResource("15_cbwqa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.12, -8.57, -2.165, -8.035, -4.38, -5, -6.2, -2.925, -6.39, 1.015, -5.4, 3.925, -4.45, 5, -4, 7, -3, 8, 0, 8, 2, 7, 3.85, 5.2, 4.515, 4, 6.04, 1.735, 6.12, -1, 5, -3, 4.3, -5.76, 3, -7)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_jx8el")
