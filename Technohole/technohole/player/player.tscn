@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=8 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
 [ext_resource type="Texture2D" uid="uid://dcn4lae56uhby" path="res://Sprite-0011.png" id="2_m8m77"]
@@ -11,13 +11,6 @@ radius = 57.0
 height = 190.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_73d3i"]
-
-[sub_resource type="Curve" id="Curve_foa81"]
-_data = [Vector2(0.450549, 0.725275), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_uufee"]
-curve_x = SubResource("Curve_foa81")
 
 [node name="player" type="CharacterBody2D"]
 platform_floor_layers = 4294967294
@@ -43,20 +36,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qo3mv")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(49, 0.000218853)
+target_position = Vector2(95, 0)
 script = ExtResource("5_lxcry")
 
 [node name="Testlaser" type="MeshInstance2D" parent="RayCast2D"]
 modulate = Color(0.654902, 0, 0, 1)
-position = Vector2(24.11, 0)
-scale = Vector2(46.1237, 0.915)
+position = Vector2(47.5241, 0.27125)
+scale = Vector2(92.9519, 1.4575)
 mesh = SubResource("BoxMesh_73d3i")
-
-[node name="Sprite2D" type="Sprite2D" parent="RayCast2D"]
-visible = false
-position = Vector2(24.3534, -0.000169653)
-scale = Vector2(-0.189789, 1.05234)
-texture = SubResource("CurveXYZTexture_uufee")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.0525559, -0.0525558)

@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 		beam_mash.position.x = cast_point.x/2
 	else:
 		beam_mash.scale.x = self.target_position.x
-		beam_mash.position.x = 24.11
+		beam_mash.position.x = 47.524
 		
 	
 	

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var wall_sprite = $main_room
-const SPEED = 40.0
+var SPEED = 40.0
 var rotation_speed = 3.5
 
 @export var line_scene: PackedScene
@@ -62,13 +62,16 @@ func _ready() -> void:
 
 func _process(delta):
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("scan_left"):
+		SPEED = 8.0
+		rotation_speed = 0.25
+		ray_cast.target_position.x = 95
 		ray_cast.visible = true
 		var player_position = self.position
-		var i = -60
+		var i = -50
 		while true:
 			
-			if i > 60:
+			if i > 50:
 				break
 			ray_cast.rotation_degrees = i
 			var point = ray_cast.get_collision_point()
@@ -80,6 +83,8 @@ func _process(delta):
 				print(point)
 				
 			await get_tree().create_timer(delta).timeout
-			i += 1
+			i += 2
 		ray_cast.rotation_degrees = 0
 		ray_cast.visible = false
+		SPEED = 40.0
+		rotation_speed = 3.5
