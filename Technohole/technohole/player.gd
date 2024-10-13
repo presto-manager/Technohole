@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var wall_sprite = $main_room
 var SPEED = 50.0
 var rotation_speed = 4
-var flag = 1
+
 
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
@@ -70,7 +70,7 @@ func create_dot(point, coeff, time):
 	queue_add(point,queue)
 	
 	await get_tree().create_timer(time).timeout
-	discolor_point(point) # Удаляем объект
+	line_instance.queue_free() # Удаляем объект
 	
 
 func _ready() -> void:
