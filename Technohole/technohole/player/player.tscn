@@ -82,7 +82,7 @@ line_scene = ExtResource("2_w014y")
 position = Vector2(0, 1)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_pubtv")
-animation = &"box_stand"
+animation = &"stand"
 script = ExtResource("10_a3k86")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -91,17 +91,14 @@ target_position = Vector2(95, 0)
 script = ExtResource("5_lxcry")
 
 [node name="Testlaser" type="MeshInstance2D" parent="RayCast2D"]
-visible = false
 position = Vector2(46.878, 0)
 scale = Vector2(93.7759, 1.4575)
 mesh = SubResource("BoxMesh_73d3i")
-
-[node name="Luch" type="Sprite2D" parent="RayCast2D"]
-position = Vector2(46.9891, 0)
-scale = Vector2(0.0920021, 0.214286)
 texture = ExtResource("9_ehduf")
 
 [node name="Player_view" type="Camera2D" parent="."]
+rotation = 1.5708
+ignore_rotation = false
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
