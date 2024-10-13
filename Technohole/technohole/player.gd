@@ -7,8 +7,9 @@ var rotation_speed = 3.5
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
 
+
 var queue = [] # with len = 100
-const LEN_OF_QUEUE = 100
+const LEN_OF_QUEUE = 300
 func queue_add(elem, queue):
 	if elem in queue:
 		return
@@ -54,15 +55,19 @@ func create_dot(point, coeff):
 	line_instance.default_color = Color(255/coeff, 255/coeff, 255/coeff)
 	get_parent().add_child(line_instance)
 	queue_add(point,queue)
-	print(queue)
+	
 
-
+func _ready() -> void:
+	ray_cast.visible = false
 
 func _process(delta):
+
 	if Input.is_action_just_pressed("ui_accept"):
+		ray_cast.visible = true
 		var player_position = self.position
 		var i = -60
 		while true:
+			
 			if i > 60:
 				break
 			ray_cast.rotation_degrees = i
@@ -77,3 +82,4 @@ func _process(delta):
 			await get_tree().create_timer(delta).timeout
 			i += 1
 		ray_cast.rotation_degrees = 0
+		ray_cast.visible = false
