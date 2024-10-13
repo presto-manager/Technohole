@@ -7,6 +7,24 @@ var rotation_speed = 3.5
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
 
+var queue = [] # with len = 100
+const LEN_OF_QUEUE = 100
+func queue_add(elem, queue):
+	if elem in queue:
+		return
+	if len(queue) == LEN_OF_QUEUE:
+		discolor_point(queue[0])
+		queue.remove_at(0)
+		queue.push_back(elem)
+	else:
+		queue.append(elem)
+
+func discolor_point(point):
+	var line_instance = line_scene.instantiate()
+	line_instance.position = Vector2(point)
+	line_instance.default_color = Color(0, 0, 0)
+	get_parent().add_child(line_instance)
+
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("ui_up", "ui_down")
@@ -30,13 +48,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func create_dot(point, coeff):
-	#var player_position = self.position
 	var line_instance = line_scene.instantiate()
 	line_instance.position = Vector2(point)
 	coeff = coeff*8
 	line_instance.default_color = Color(255/coeff, 255/coeff, 255/coeff)
-	
 	get_parent().add_child(line_instance)
+	queue_add(point,queue)
+	print(queue)
+
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
