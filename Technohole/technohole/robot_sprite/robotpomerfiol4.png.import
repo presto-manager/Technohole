@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdm4tt2k4tyv"
-path="res://.godot/imported/laser.svg-e3c5a3d000226eda89695cf595ae8179.ctex"
+uid="uid://r8ox38ivadi1"
+path="res://.godot/imported/robotpomerfiol4.png-f68dca90a077fea462a66b5c1538cf20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://laser.svg"
-dest_files=["res://.godot/imported/laser.svg-e3c5a3d000226eda89695cf595ae8179.ctex"]
+source_file="res://robot_sprite/robotpomerfiol4.png"
+dest_files=["res://.godot/imported/robotpomerfiol4.png-f68dca90a077fea462a66b5c1538cf20.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

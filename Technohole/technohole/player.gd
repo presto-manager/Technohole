@@ -53,7 +53,7 @@ func create_dot(point, coeff, time):
 	var line_instance = line_scene.instantiate()
 	line_instance.position = Vector2(point)
 	coeff = coeff*8
-	line_instance.default_color = Color(255/coeff, 255/coeff, 255/coeff)
+	line_instance.default_color = Color(151/coeff, 51/coeff, 255/coeff)
 	get_parent().add_child(line_instance)
 	queue_add(point,queue)
 	
@@ -66,6 +66,7 @@ func _ready() -> void:
 	sprite.play("stand")
 
 func _process(delta):
+	
 	if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right")and not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		sprite.play("stand")
 		
