@@ -18,7 +18,7 @@ func queue_add(elem, queue):
 func discolor_point(point):
 	var line_instance = line_scene.instantiate()
 	line_instance.position = Vector2(point)
-	line_instance.default_color = Color(0, 0, 0)
+	line_instance.default_color = Color(40, 40, 40)
 	get_parent().add_child(line_instance)
 	
 func _physics_process(delta: float) -> void:
