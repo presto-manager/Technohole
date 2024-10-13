@@ -7,6 +7,7 @@ var rotation_speed = 3.5
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
 @onready var audio_player = $AudioStreamPlayer2D  # Убедитесь, что путь к узлу правильный
+@onready var sprite = $AnimatedSprite2D  # Убедитесь, что путь к узлу правильный
 
 var queue = []
 func queue_add(elem, queue):
@@ -24,16 +25,20 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_up", "ui_down")
 	if direction:
 		velocity.y = direction * SPEED
+		sprite.play("run")
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		sprite.play("run")
 	
   # Get the input direction and handle the movement/deceleration.
   # As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		sprite.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		sprite.play("run")
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * SPEED
@@ -58,9 +63,12 @@ func create_dot(point, coeff, time):
 
 func _ready() -> void:
 	ray_cast.visible = false
+	sprite.play("stand")
 
 func _process(delta):
-
+	if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right")and not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
+		sprite.play("stand")
+		
 	if Input.is_action_just_pressed("scan_left"):
 		SPEED = 8.0
 		rotation_speed = 0.25
