@@ -6,7 +6,7 @@ var rotation_speed = 3.5
 
 @export var line_scene: PackedScene
 @onready var ray_cast = $RayCast2D
-
+@onready var audio_player = $AudioStreamPlayer2D  # Убедитесь, что путь к узлу правильный
 
 var queue = [] # with len = 100
 const LEN_OF_QUEUE = 300
@@ -67,6 +67,7 @@ func _process(delta):
 		rotation_speed = 0.25
 		ray_cast.target_position.x = 95
 		ray_cast.visible = true
+		audio_player.play()  # Проигрываем музыку
 		var player_position = self.position
 		var i = -50
 		while true:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8dpev63m5pjh"]
+[gd_scene load_steps=9 format=3 uid="uid://c8dpev63m5pjh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_f6q64"]
 [ext_resource type="Texture2D" uid="uid://dcn4lae56uhby" path="res://Sprite-0011.png" id="2_m8m77"]
 [ext_resource type="PackedScene" uid="uid://dmgpfepcuvryd" path="res://Lidar_line/lidar_dot_line.tscn" id="2_w014y"]
 [ext_resource type="Script" path="res://player/area_2d.gd" id="3_m8kmp"]
 [ext_resource type="Script" path="res://player/ray_cast_2d.gd" id="5_lxcry"]
+[ext_resource type="AudioStream" uid="uid://cdxllutvsd24q" path="res://scan_sound.mp3" id="6_m1y34"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qo3mv"]
 radius = 57.0
@@ -53,3 +54,6 @@ texture = ExtResource("2_m8m77")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4, -7, 1, -7, 1, -6, 5, -6, 5, -5, 7, -5, 7, 5, 5, 5, 5, 6, 1, 6, 1, 7, -4, 7, -4, 5, -6, 5, -6, -5, -4, -5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_m1y34")
